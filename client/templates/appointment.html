@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointment - HealthyLife</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/appointment.css') }}" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="logo-img" />
+        <div class="logo-text">HealthyLife</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home.index') }}">HOME</a></li>
+        <li><a href="{{ url_for('diagnostic.diagnostic') }}">DIAGNOSTIC</a></li>
+        <li><a href="{{ url_for('appointment.appointment') }}" class="active">APPOINTMENT</a></li>
+        <li><a href="{{ url_for('dashboard_bp.dashboard') }}">DASHBOARD</a></li> 
+      </ul>
+    </nav>
+  </header>
+
+  <!-- City Filter Section -->
+  <section class="filter-section">
+    <label for="cityDropdown">Select City:</label>
+    <select id="cityDropdown" onchange="filterByCity()">
+      <option value="">-- Select a City --</option>
+      {% for city in cities %}
+        <option value="{{ city }}" {% if selected_city == city %}selected{% endif %}>{{ city }}</option>
+      {% endfor %}
+    </select>
+  </section>
+
+  <!-- Doctor Cards -->
+  <section class="doctor-container">
+    {% if doctors %}
+      {% for doctor in doctors %}
+        <div class="doctor-card">
+          <img 
+            src="{{ url_for('doctor_bp.doctor_image', filename=doctor.photo_path or 'default.jpg') }}" 
+            alt="Doctor Photo" 
+            class="doctor-photo" 
+          />
+          <h3>{{ doctor.name }}</h3>
+          <p><b>{{ doctor.specialization }}</b></p>
+         <button onclick="toggleDetails(this)">View Details</button>
+
+          <div class="doctor-details" id="details-{{ doctor.id }}">
+            <p><b>Phone:</b> {{ doctor.phone }}</p>
+            <p><b>Email:</b> {{ doctor.email }}</p>
+            <p><b>Experience:</b> {{ doctor.experience }} years</p>
+            <p><b>Services:</b> {{ doctor.services }}</p>
+            <p><b>Clinic:</b> {{ doctor.clinic }}</p>
+            <p><b>Location:</b> {{ doctor.location }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p style="text-align:center; margin-top: 50px;">No doctors found for this city.</p>
+    {% endif %}
+  </section>
+
+  <!-- Doctor Details Modal -->
+<div id="doctorModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modal-details"></div>
+  </div>
+</div>
+
+  <script src="{{ url_for('static', filename='js/appointment.js') }}" defer></script>
+</body>
+</html>

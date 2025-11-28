@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Environment
+.env
+venv/
+ENV/
+.venv/
+
+#secret keys
+apikey.env
+
+# Packaging
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+
+# Temporary files
+tempCodeRunnerFile.py
+*.tmp
+*~ 
+

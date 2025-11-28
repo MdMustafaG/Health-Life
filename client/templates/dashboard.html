@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - HealthyLife</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-left">
+          <img
+            src="{{ url_for('static', filename='assets/logo.png') }}"
+            alt="Logo"
+            class="logo-img"
+          />
+          <div class="logo-text">HealthyLife</div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/diagnostic">DIAGNOSTIC</a></li>
+          <li><a href="/appointment">APPOINTMENT</a></li>
+          <li><a href="/dashboard" class="active">DASHBOARD</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Dashboard Section -->
+    <div class="dashboard-container">
+      <!-- Circular Doctor Count Card -->
+      <div class="card">
+        <h3>Total Doctors</h3>
+        <div class="circle-card">
+          <span class="circle-number" id="totalDoctors">0</span>
+        </div>
+      </div>
+
+      <!-- Circular Specialization Chart -->
+      <div class="card">
+        <h3>Doctor Specializations</h3>
+        <div class="chart-circle-card">
+          <canvas id="specializationChart"></canvas>
+        </div>
+      </div>
+
+      <!-- USER RATINGS CHART REPLACED HERE -->
+      <div class="card">
+        <h3>User Ratings(Revivews)</h3>
+
+        <h4
+          id="totalRatingsText"
+          style="color: #00eaff; margin-bottom: 10px; font-size: 18px"
+        >
+          Total Ratings: 0
+        </h4>
+
+        <div class="regular-chart-card">
+          <canvas id="feedbackChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script
+      src="{{ url_for('static', filename='js/dashboard.js') }}"
+      defer
+    ></script>
+  </body>
+</html>

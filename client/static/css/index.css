@@ -1,0 +1,589 @@
+/*  Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #0a0f2c, #13235c);
+  color: #fff;
+  line-height: 1.6;
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #00eaff;
+}
+
+/*  Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
+/* Left Content */
+.hero-text {
+  max-width: 580px;
+  height: 400px;
+}
+
+.hero-text h1 {
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  margin: 20px 0;
+  font-size: 16px;
+  color: #dcdcdc;
+}
+
+/* Button */
+.btn {
+  padding: 12px 28px;
+  margin: 8px 8px 16px 8px; 
+  border: none;
+  border-radius: 25px;
+  background: #fff;
+  color: #1e3eff;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #1e3eff;
+  color: #fff;
+}
+
+/* Right-side Images */
+.hero-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 10px;
+}
+
+.grid img {
+  width: 200%;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/*  Chatbot Dancing Container */
+.chatbot-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-top: 20px;
+  height: 150px;
+  cursor: help;
+  width: fit-content;
+  position: relative;
+  left: 400px;
+  top: 50px;
+}
+
+/* Chatbot Image */
+.chatbot-img {
+  width: 120px;
+  animation: chatbotDance 3s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out;
+  object-fit: cover;
+}
+
+/* Chatbot Label Text */
+.chatbot-label {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #1da1f2;
+  font-weight: bold;
+  animation: glowText 1.5s ease-in-out infinite alternate;
+}
+
+/* Chatbot Dancing Animation */
+@keyframes chatbotDance {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(30px) rotate(5deg);
+  }
+  50% {
+    transform: translateX(0) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-30px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+/*  Glowing Text Effect */
+@keyframes glowText {
+  from {
+    color: #1da1f2;
+    text-shadow: 0 0 5px #1da1f2;
+  }
+  to {
+    color: #00e1ff;
+    text-shadow: 0 0 15px #00e1ff;
+  }
+}
+
+/* ================= Chat Popup ================= */
+
+.chat-popup {
+  position: fixed;
+  top: -100%; /* hidden initially */
+  right: 30%;
+  width: 600px;
+  height: 500px;
+  background: #fff;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  transition: top 0.6s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+}
+
+.chat-popup.active {
+  top: 0;
+}
+
+.chat-header {
+  background: #045fc0;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+}
+
+.chat-header span {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #333;
+}
+
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #f8f8f8;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.chat-footer button {
+  margin-left: 5px;
+  padding: 8px 12px;
+  border: none;
+  background: #045fc0;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.chat-footer button:hover {
+  background-color: #0056b3;
+}
+
+/* Doctor Registration Popup */
+.doctor-popup {
+  position: fixed;
+  top: 0;
+  right: -100%; /* hidden initially */
+  width: 600px;
+  height: 100%;
+  background: #fff;
+  color: #333;
+  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.3);
+  transition: right 0.6s ease-in-out;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 0 0 10px;
+}
+
+.doctor-popup.active {
+  right: 0; /* slide in */
+}
+
+.doctor-header {
+  background: #045fc0;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px 0 0 0;
+}
+
+.doctor-header span {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.doctor-form {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.doctor-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.doctor-form input,
+.doctor-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.doctor-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #045fc0;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.doctor-form button:hover {
+  background: #003f8c;
+}
+.popup {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  width: 300px;
+  animation: slideIn 0.4s ease-in-out;
+}
+
+.popup.active {
+  display: block;
+}
+
+.popup .close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* License Status Indicator */
+#licenseStatus {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top-color: #045fc0;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+/* ================= Success Popup ================= */
+.success-popup {
+  position: fixed;
+  top: 20px;
+  right: 50px;
+  background: #ffffff;
+  color: #333;
+  border-left: 6px solid #28a745; 
+  border-radius: 10px;
+  padding: 18px 20px 18px 50px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  width: 800px;
+  font-size: 15px;
+  display: none;
+  z-index: 4000;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.4s ease;
+}
+
+/* When visible */
+.success-popup.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade out */
+.success-popup.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/*-------------- Info Popup Base ----------------------------*/
+.info-popup {
+  position: fixed;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: top 0.4s ease-in-out;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.info-popup.active {
+  top: 0;
+}
+
+.info-content {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.info-content h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #333;
+}
+h4{
+  color: red;
+  font-size: large;
+}
+h6{
+  color: blue;
+  font-size: medium;
+}
+.info-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.close-info {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+.small-buttons .small-btn {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.small-buttons .small-btn:hover {
+  background-color: #ddd;
+}
+
+/* Feedback Popup */
+.feedback-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 999;
+}
+
+.feedback-content {
+  background: #fff;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  text-align: center;
+}
+
+.close-feedback {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.feedback-content input,
+.feedback-content textarea {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.stars {
+  margin: 10px 0;
+}
+
+.star {
+  font-size: 25px;
+  cursor: pointer;
+  color: gray;
+}
+
+.star.selected,
+.star:hover,
+.star:hover ~ .star {
+  color: gold;
+}
+
+.feedback-content button {
+  margin-top: 10px;
+}
+
+/* Thank You Popup */
+.thankyou-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.thankyou-content {
+  background: #4CAF50; /* Green */
+  color: white;
+  max-width: 350px;
+  margin: 150px auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.close-thankyou {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}

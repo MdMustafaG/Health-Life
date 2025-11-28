@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disease Predictor - HealthyLife</title>
+  <link rel="stylesheet" href="../static/css/diagnostic.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="../static/assets/logo.png" alt="Logo" class="logo-img" />
+        <div class="logo-text">HealthyLife</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/diagnostic">DIAGNOSTIC</a></li>
+        <li><a href="/appointment">APPOINTMENT</a></li>
+        <li><a href="/dashboard">DASHBOARD</a></li> 
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Diagnostic Section -->
+  <section class="diagnostic">
+    <h1>We Predict Your Health</h1>
+    <p>Enter your symptoms below and get an instant Health Updates</p>
+
+    <form id="predictForm">
+      <label for="symptoms">Enter Symptoms (comma-separated):</label>
+      <textarea id="symptoms" placeholder="e.g. fever, cough, fatigue" required></textarea>
+      <button type="submit" class="btn">Predict</button>
+    </form>
+
+    <div id="result" class="result-box" style="display:none;">
+      <h2>Prediction Result:</h2>
+      <p><strong>Disease:</strong> <span id="prediction">No prediction yet.</span></p>
+      <p><strong>Description:</strong> <span id="description"></span></p>
+      <p><strong>Precautions:</strong></p>
+      <ul id="precautions"></ul>
+      <p><strong>Medications:</strong></p>
+      <ul id="medications"></ul>
+      <p><strong>Diet Suggestions:</strong></p>
+      <ul id="diets"></ul>
+      <p><strong>Workout Tips:</strong></p>
+      <ul id="workouts"></ul>
+    </div>
+  </section>
+
+  <script src="../static/js/diagnostic.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #0a0f2c, #13235c);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00eaff;
+}
+
+/* Diagnostic Section */
+.diagnostic {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.diagnostic h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.diagnostic p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* Form */
+label {
+  display: block;
+  margin: 15px 0 8px;
+  font-size: 16px;
+  text-align: left;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+textarea:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 5px #1e3eff;
+}
+
+textarea::placeholder {
+  color: #bbb;
+}
+
+/* Button */
+.btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 25px;
+  background: #fff;
+  color: #1e3eff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #1e3eff;
+  color: #fff;
+  box-shadow: 0 0 12px #1e3eff;
+}
+
+/* Result Box */
+.result-box {
+  margin-top: 20px;
+  padding: 25px;
+  background-color: rgba(0, 255, 255, 0.1);
+  border-radius: 12px;
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease-in-out;
+  text-align: left;
+}
+
+.result-box.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.result-box h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Individual Sections */
+.result-box p {
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+.result-box ul {
+  list-style: disc inside;
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+.result-box ul li {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #fff;
+}
+
+/* Disease Name */
+#prediction {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00b579;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .diagnostic {
+    margin: 40px 15px;
+    padding: 20px;
+  }
+
+  textarea {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .result-box {
+    padding: 15px;
+  }
+
+  .result-box p,
+  .result-box ul li {
+    font-size: 14px;
+  }
+}

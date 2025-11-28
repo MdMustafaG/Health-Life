@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      background: #05030f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Glowing circles */
+    .circle1 {
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      background: #b100ff;
+      border-radius: 50%;
+      filter: blur(40px);
+    }
+
+    .circle2 {
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(to right, #ff6a00, #ffbb33);
+      border-radius: 50%;
+      filter: blur(40px);
+    }
+
+    /* Login Card */
+    .login-box {
+      position: relative;
+      width: 340px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      z-index: 10;
+    }
+
+    .login-box h2 {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .login-box p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .login-box label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+      opacity: 0.9;
+    }
+
+/* Make username input match password input height */
+.login-box input {
+  width: 100%;
+  padding: 12px 12px;
+  margin-bottom: 18px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 14px;
+}
+
+
+    .login-box input::placeholder {
+      color: #cad2e2;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #e8e8e8;
+    }
+    .signup-text {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #d8d8d8;
+}
+
+.signup-text a {
+  color: #9bb5ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+.password-wrapper {
+  margin-bottom: 18px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 44px 12px 12px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 14px;
+}
+
+.eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-52%);   /* <-- THIS FIXES THE OFF-CENTER ISSUE */
+  cursor: pointer;
+  font-size: 18px;
+  color: #dadcff;
+  user-select: none;
+  line-height: 0; /* fixes alignment */
+}
+
+/* Override default login input for password field */
+.login-box .input-wrapper input {
+  padding: 12px 44px 12px 12px !important;
+  margin-bottom: 18px;
+}
+.back-btn {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #dcdcdc;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: #ffffff;
+}
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="circle1"></div>
+  <div class="circle2"></div>
+  
+
+  <div class="login-box">
+    <a href="{{ url_for('home.index') }}" class="back-btn">← Back</a>
+
+    <h2>Welcome Back!</h2>
+    <p>Login to your account.</p>
+
+    <form>
+      <label>Username</label>
+      <input type="text" placeholder="Enter your username" required />
+
+<label>Password</label>
+
+<div class="input-wrapper">
+    <input type="password" id="login-password" placeholder="Enter your password" required>
+    <span class="eye" onclick="togglePassword('login-password', this)">👁️</span>
+</div>
+
+
+
+
+      <button type="submit">Sign In</button>
+<div class="signup-text">
+    Don't have an account?
+    <a href="{{ url_for('home.signup') }}">Sign Up</a>
+</div>
+
+    </form>
+  </div>
+<script>
+function togglePassword(id, el) {
+    const input = document.getElementById(id);
+
+    if (input.type === "password") {
+        input.type = "text";
+        el.textContent = "👁️"; // change icon when shown
+    } else {
+        input.type = "password";
+        el.textContent = "👁️"; // change icon when hidden
+    }
+}
+</script>
+
+</body>
+</html>

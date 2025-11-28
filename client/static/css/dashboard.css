@@ -1,0 +1,173 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+body {
+  background: linear-gradient(to bottom, #0a0f2c, #13235c);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00eaff;
+}
+
+/* Dashboard Grid */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 35px;
+  padding: 40px;
+}
+
+/* Card */
+.card {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 25px 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.card h3 {
+  font-size: 22px;
+  color: #00eaff;
+  margin-bottom: 20px;
+}
+
+/*Circular Doctor Count Card  */
+.circle-card {
+  width: 180px;
+  height: 180px;
+  margin: auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1da1f2, #0a0f2c);
+  border: 4px solid rgba(0, 255, 204, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.4),
+              0 0 55px rgba(29, 161, 242, 0.3);
+  transition: 0.3s ease;
+}
+
+.circle-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 35px rgba(0, 255, 204, 0.8),
+              0 0 75px rgba(29, 161, 242, 0.5);
+}
+
+.circle-number {
+  font-size: 52px;
+  font-weight: 700;
+  color: #00ffcc;
+}
+
+/* Specialization Chart Circular Container  */
+.chart-circle-card {
+  width: 260px;
+  height: 260px;
+  margin: auto;
+  border-radius: 50%;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25),
+              0 0 50px rgba(29, 161, 242, 0.25);
+  transition: 0.3s ease;
+}
+
+.chart-circle-card:hover {
+  transform: scale(1.05);
+}
+
+.chart-circle-card canvas {
+  width: 90% !important;
+  height: 90% !important;
+}
+
+/* ML Accuracy Chart (Rectangular)*/
+.regular-chart-card {
+  width: 100%;
+  height: 260px;
+}
+
+.regular-chart-card canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+}
