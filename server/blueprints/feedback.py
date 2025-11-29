@@ -7,8 +7,8 @@ feedback_bp = Blueprint("feedback_bp", __name__)
 # MySQL Configuration
 DB_CONFIG = {
     "host": "localhost",
-    "user": "attar",
-    "password": "Attar@2025",
+    "user": "root",
+    "password": "Md@123",
     "database": "healthydb",
     "charset": "utf8mb4"
 }

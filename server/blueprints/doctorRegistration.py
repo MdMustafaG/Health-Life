@@ -9,8 +9,8 @@ doctor_bp = Blueprint("doctor_bp", __name__)
 #  DATABASE Configaration 
 DB_CONFIG = {
     "host": "localhost",
-    "user": "attar",
-    "password": "Attar@2025",
+    "user": "root",
+    "password": "Md@123",
     "database": "healthydb",
     "charset": "utf8mb4"
 }

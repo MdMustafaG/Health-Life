@@ -6,8 +6,8 @@ dashboard_bp = Blueprint("dashboard_bp", __name__, url_prefix="/dashboard")
 
 DB_CONFIG = {
     "host": "localhost",
-    "user": "Healthylife",
-    "password": "Health@2025//",
+    "user": "root",
+    "password": "Md@123",
     "database": "healthydb",
     "charset": "utf8mb4",
     "cursorclass": pymysql.cursors.DictCursor

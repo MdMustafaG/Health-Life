@@ -5,6 +5,9 @@ from .chatbot import chatbot_bp
 from .appointment import appointment_bp
 from .doctorRegistration import doctor_bp
 from .feedback import feedback_bp
+from .auth import auth_bp
+from .signup import signup_bp
+
 
 def init_blueprints(app):
     """Register all blueprints here"""
@@ -14,4 +17,6 @@ def init_blueprints(app):
     app.register_blueprint(chatbot_bp)
     app.register_blueprint(appointment_bp)
     app.register_blueprint(doctor_bp)
-    app.register_blueprint(feedback_bp)  
+    app.register_blueprint(feedback_bp)
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(signup_bp)
